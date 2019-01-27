@@ -56,7 +56,7 @@ static Button *buttons[BTN_INVALID] = {
 
 static Task *tasks[TASK_INVALID] = {
     [TASK_VOL_UP_INDEF]     = new Task(TIME_CMD_INTERVAL, TASK_FOREVER, &volumeUp),
-    [TASK_VOL_DOWN_INDEF ]  = new Task(TIME_CMD_INTERVAL, TASK_FOREVER, &volumeDown),
+    [TASK_VOL_DOWN_INDEF]   = new Task(TIME_CMD_INTERVAL, TASK_FOREVER, &volumeDown),
     [TASK_VOL_UP_INCR]      = new Task(TIME_CMD_INTERVAL, NUM_VOL_INCREMENTS, &volumeUp),
     [TASK_VOL_DOWN_INCR]    = new Task(TIME_CMD_INTERVAL, NUM_VOL_INCREMENTS, &volumeDown),
 };
