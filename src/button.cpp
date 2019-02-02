@@ -1,13 +1,16 @@
 #include "../inc/button.h"
 
-Button::Button(button_type buttonType)
+Button::Button(button_type buttonType, input_pin_t inputPin, float lowerLimit, float upperLimit)
 {
-    this->button_Init(buttonType);
+    this->button_Init(buttonType, inputPin, lowerLimit, upperLimit);
 }
 
-void Button::button_Init(button_type buttonType)
+void Button::button_Init(button_type buttonType, input_pin_t inputPin, float lowerLimit, float upperLimit)
 {
     this->m_buttonType = buttonType;
+    this->m_inputPin = inputPin;
+    this->m_lowerLimit = lowerLimit;
+    this->m_upperLimit = upperLimit;
     return;
 }
 
@@ -32,15 +35,15 @@ void Button::BUTTON_OnLongClick(clickHandler longClickHandler)
 void Button::BUTTON_HandleClick(click_type clickType)
 {
     switch (clickType) {
-        case SINGLE_CLICK:
+        case CLICK_SINGLE:
             this->m_singleClickHandler();
             break;
 
-        case DOUBLE_CLICK:
+        case CLICK_DOUBLE:
             this->m_doubleClickHandler();
             break;
 
-        case LONG_CLICK:
+        case CLICK_LONG:
             this->m_longClickHandler();
             break;
 
